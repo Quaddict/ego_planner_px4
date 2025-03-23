@@ -1,4 +1,6 @@
 # ego_planner_px4
+运行效果见B站：https://www.bilibili.com/video/BV1AdX8YaEzS/?spm_id_from=333.1387.homepage.video_card.click
+
 ## 功能介绍
 实现了ego-Planner 与 PX4 的联合仿真
 
