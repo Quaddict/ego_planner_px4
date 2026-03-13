@@ -7,7 +7,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <mavros_msgs/State.h>
 #include <mavros_msgs/PositionTarget.h>
-#include <offboard/PositionCommand.h>
+#include <offboard_px4/PositionCommand.h>
 #include <Eigen/Eigen>
 
 int state_flag = 0;                 // 状态标志位
@@ -30,7 +30,7 @@ void local_position_cb(const geometry_msgs::PoseStamped::ConstPtr& msg)
 
 Eigen::Vector3d ego_poscmd;
 double yaw_set;
-void ego_pos_cb(const offboard::PositionCommand::ConstPtr& msg)
+void ego_pos_cb(const offboard_px4::PositionCommand::ConstPtr& msg)
 {
     ego_poscmd[0] = msg->position.x;
     ego_poscmd[1] = msg->position.y;
@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 
     ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("/iris_0/mavros/state", 10, state_cb);
     ros::Subscriber local_position_sub = nh.subscribe<geometry_msgs::PoseStamped>("/iris_0/mavros/local_position/pose", 10, local_position_cb);
-    ros::Subscriber ego_pos_sub = nh.subscribe<offboard::PositionCommand>("/planning/pos_cmd", 10, ego_pos_cb);
+    ros::Subscriber ego_pos_sub = nh.subscribe<offboard_px4::PositionCommand>("/planning/pos_cmd", 10, ego_pos_cb);
 
     ros::Publisher setpoint_raw_local_pub = nh.advertise<mavros_msgs::PositionTarget>("/iris_0/mavros/setpoint_raw/local", 10);
 
