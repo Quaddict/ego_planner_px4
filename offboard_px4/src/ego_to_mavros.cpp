@@ -7,7 +7,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <mavros_msgs/State.h>
 #include <mavros_msgs/PositionTarget.h>
-#include <offboard/PositionCommand.h>
+#include <offboard_px4/PositionCommand.h>
 #include <Eigen/Eigen>
 
 int state_flag = 0;                 // 状态标志位
